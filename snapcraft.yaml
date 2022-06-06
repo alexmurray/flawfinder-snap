@@ -1,0 +1,32 @@
+name: flawfinder
+base: core20
+version: 2.0.19
+summary: A tool for encouraging best and secure Python coding practices
+description: |
+ Flawfinder is a simple program that scans C/C++ source code and reports
+ potential security flaws. It can be a useful tool for examining software
+ for vulnerabilities, and it can also serve as a simple introduction to
+ static source code analysis tools more generally. It is designed to be
+ easy to install and use. Flawfinder supports the Common Weakness
+ Enumeration (CWE) and is officially CWE-Compatible.
+confinement: strict
+grade: stable
+
+apps:
+  flawfinder:
+    command: bin/flawfinder
+    plugs:
+      - home
+
+parts:
+  flawfinder:
+    plugin: python
+    source: https://git.code.sf.net/p/flawfinder/code
+    source-type: git
+    source-tag: $SNAPCRAFT_PROJECT_VERSION
+    override-build: |
+      make all
+      snapcraftctl build
+    build-packages:
+      - ghostscript
+      - man
