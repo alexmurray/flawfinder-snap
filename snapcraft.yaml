@@ -1,7 +1,7 @@
 name: flawfinder
 base: core20
 version: 2.0.19
-summary: A tool for encouraging best and secure Python coding practices
+summary: Examines C/C++ source code and reports possible security weaknesses
 description: |
  Flawfinder is a simple program that scans C/C++ source code and reports
  potential security flaws. It can be a useful tool for examining software
